@@ -1,7 +1,5 @@
 # Supabase Auth App
 
-![Supabase Auth App](https://via.placeholder.com/150) <!-- Replace with your project logo -->
-
 ## Overview
 
 Supabase Auth App is a modern web application that leverages Supabase as a Backend-as-a-Service (BaaS) for user authentication and data management. This application provides a seamless experience for users to sign up, log in, and manage their data securely.
