@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import { logoutLink, navigationLinks } from '@/config/navigation'
-import { useUserStore } from '@/stores/useUserStore'
-import { computed } from 'vue'
-import HelloWorld from './TheHello.vue'
-import NavLink from './TheNavigationLink.vue'
+import { logoutLink, navigationLinks } from '@/config/navigation';
+import { useUserStore } from '@/stores/useUserStore';
+import { computed } from 'vue';
+import TheHello from './TheHello.vue';
+import NavLink from './TheNavigationLink.vue';
 
-const userStore = useUserStore()
+const userStore = useUserStore();
 
 const visibleLinks = computed(() => {
   return navigationLinks.filter((link) => {
     if (link.requiresAuth && !userStore.isAuthenticated)
-      return false
+      return false;
 
     if (link.requiresGuest && userStore.isAuthenticated)
-      return false
+      return false;
 
-    return true
-  })
-})
+    return true;
+  });
+});
 </script>
 
 <template>
   <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" height="50">
 
   <div class="wrapper">
-    <HelloWorld msg="Welcome to the Supabase Auth App !" />
+    <TheHello msg="Welcome to the Supabase Auth App !" />
 
     <nav>
       <NavLink

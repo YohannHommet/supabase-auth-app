@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineOptions({ name: 'HomeView' })
+defineOptions({ name: 'HomeView' });
 </script>
 
 <template>
@@ -10,5 +10,9 @@ defineOptions({ name: 'HomeView' })
     <p class="section__description">
       Explore our features and join us today!
     </p>
+
+    <div>
+      <h1>Users</h1>
+    </div>
   </section>
 </template>

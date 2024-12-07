@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { NavLink } from '@/config/navigation'
-import { RouterLink } from 'vue-router'
+import type { NavLink } from '@/config/navigation';
+import { RouterLink } from 'vue-router';
 
 export interface INavLinkProps {
-  link: NavLink
+  link: NavLink;
 }
 
-defineOptions({ name: 'TheNavigationLink' })
-defineProps<INavLinkProps>()
+defineOptions({ name: 'TheNavigationLink' });
+defineProps<INavLinkProps>();
 </script>
 
 <template>
