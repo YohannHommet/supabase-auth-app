@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TheLogin from '@/components/TheLogin.vue'
+import TheLogin from '@/components/TheLogin.vue';
 
-defineOptions({ name: 'LoginView' })
+defineOptions({ name: 'LoginView' });
 </script>
 
 <template>

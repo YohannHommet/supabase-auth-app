@@ -1,12 +1,12 @@
-import type { RouteLocationRaw } from 'vue-router'
-import { useUserStore } from '@/stores/useUserStore'
+import type { RouteLocationRaw } from 'vue-router';
+import { useUserStore } from '@/stores/useUserStore';
 
 export interface NavLink {
-  to: RouteLocationRaw
-  label: string
-  requiresAuth?: boolean
-  requiresGuest?: boolean
-  action?: () => void
+  to: RouteLocationRaw;
+  label: string;
+  requiresAuth?: boolean;
+  requiresGuest?: boolean;
+  action?: () => void;
 }
 
 export const navigationLinks: NavLink[] = [
@@ -37,7 +37,7 @@ export const navigationLinks: NavLink[] = [
     label: 'Signup',
     requiresGuest: true,
   },
-]
+];
 
 // Separate logout link since it's special (has an action)
 export const logoutLink: NavLink = {
@@ -45,4 +45,4 @@ export const logoutLink: NavLink = {
   label: 'Logout',
   requiresAuth: true,
   action: () => useUserStore().logout(),
-}
+};

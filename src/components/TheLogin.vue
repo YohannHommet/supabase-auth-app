@@ -1,11 +1,11 @@
 <!-- src/components/Login.vue -->
 <script setup lang="ts">
-import { githubStrategy, magicLinkStrategy, passwordStrategy, useAuth } from '@/composables/useAuth'
-import { ref } from 'vue'
+import { githubStrategy, magicLinkStrategy, passwordStrategy, useAuth } from '@/composables/useAuth';
+import { ref } from 'vue';
 
-const email = ref('')
-const password = ref('')
-const { loginError, handleLogin } = useAuth()
+const email = ref('');
+const password = ref('');
+const { loginError, handleLogin } = useAuth();
 </script>
 
 <template>

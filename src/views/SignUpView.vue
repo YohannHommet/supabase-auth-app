@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TheSignUp from '@/components/SignUp.vue'
+import TheSignUp from '@/components/SignUp.vue';
 
-defineOptions({ name: 'SignUpView' })
+defineOptions({ name: 'SignUpView' });
 </script>
 
 <template>

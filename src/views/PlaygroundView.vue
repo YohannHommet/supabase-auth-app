@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ThePlayground from '@/components/ThePlayground.vue'
+import ThePlayground from '@/components/ThePlayground.vue';
 
-defineOptions({ name: 'PlaygroundView' })
+defineOptions({ name: 'PlaygroundView' });
 </script>
 
 <template>

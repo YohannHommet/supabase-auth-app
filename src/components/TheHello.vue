@@ -1,8 +1,8 @@
 <script setup lang="ts">
-defineOptions({ name: 'TheHello' })
+defineOptions({ name: 'TheHello' });
 defineProps<{
-  msg: string
-}>()
+  msg: string;
+}>();
 </script>
 
 <template>
