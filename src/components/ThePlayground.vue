@@ -1,62 +1,57 @@
 <script setup lang="ts">
-import { useFetch } from '@/composables/useFetch'
-import { onBeforeMount, onMounted, ref } from 'vue'
-import { supabase } from '../plugins/supabase'
-import UserCardSkeleton from './UserCardSkeleton.vue'
+import { useFetch } from '@/composables/useFetch';
+import { onMounted, ref } from 'vue';
+import { supabase } from '../plugins/supabase';
+import UserCardSkeleton from './UserCardSkeleton.vue';
 
 interface Country {
-  id: number
-  name: string
+  id: number;
+  name: string;
 }
 
 interface User {
-  id: number
-  name: string
-  username: string
-  email: string
-  phone: string
-  website: string
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  phone: string;
+  website: string;
 }
 
 defineOptions({
   name: 'ThePlayground',
-})
+});
 
-const countries = ref<Country[]>([])
-const users = ref<User[]>([])
-const usersHasError = ref<boolean>(false)
-const usersErrorMessage = ref<string | null>(null)
-const isFetchingUsers = ref<boolean>(false)
-
-onBeforeMount(async () => {
-  const { hasError, errorMessage, data, isLoading } = await useFetch<User[]>({
-    url: 'https://jsonplaceholder.typicode.com/users',
-    options: {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  })
-
-  users.value = data.value ?? []
-  isFetchingUsers.value = isLoading.value
-  usersHasError.value = hasError.value
-  usersErrorMessage.value = errorMessage.value
-})
+const countries = ref<Country[]>([]);
+const users = ref<User[]>([]);
+const usersErrorMessage = ref<string | null>(null);
+const { isFetching: isFetchingUsers } = useFetch<User[]>({
+  url: 'https://jsonplaceholder.typicode.com/users',
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  onResponse: async (data) => {
+    users.value = data;
+    return data;
+  },
+  onError: (error) => {
+    usersErrorMessage.value = error.message;
+  },
+});
 
 async function getCountries() {
-  const { data, error } = await supabase.from('countries').select()
+  const { data, error } = await supabase.from('countries').select();
 
   if (error)
-    throw error
+    throw error;
 
-  countries.value = data
+  countries.value = data;
 }
 
 onMounted(() => {
-  getCountries()
-})
+  getCountries();
+});
 </script>
 
 <template>
@@ -74,7 +69,7 @@ onMounted(() => {
       <template v-if="isFetchingUsers">
         <UserCardSkeleton v-for="n in 6" :key="n" />
       </template>
-      <template v-else-if="usersHasError">
+      <template v-else-if="usersErrorMessage">
         <p>Error fetching users: {{ usersErrorMessage }}</p>
       </template>
       <template v-else>

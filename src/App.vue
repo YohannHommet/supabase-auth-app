@@ -1,12 +1,16 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import TheNavigation from './components/TheNavigation.vue'
+import { RouterView } from 'vue-router';
+import TheBreadcrumb from './components/TheBreadcrumb.vue';
+import TheNavigation from './components/TheNavigation.vue';
 </script>
 
 <template>
   <header>
     <TheNavigation />
   </header>
+  <section class="breadcrumb">
+    <TheBreadcrumb />
+  </section>
 
   <main class="main" role="main">
     <RouterView />

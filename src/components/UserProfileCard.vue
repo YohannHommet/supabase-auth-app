@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import type { User } from '@supabase/supabase-js'
-import { computed } from 'vue'
+import type { User } from '@supabase/supabase-js';
+import { computed } from 'vue';
 
 interface Props {
-  user: User | null
+  user: User | null;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 const emit = defineEmits<{
-  logout: []
-}>()
+  logout: [];
+}>();
 
 const formattedCreatedAt = computed(() => {
   return props.user?.created_at
     ? new Date(props.user.created_at).toLocaleDateString()
-    : '-'
-})
+    : '-';
+});
 
 const formattedLastSignIn = computed(() => {
   return props.user?.last_sign_in_at
     ? new Date(props.user.last_sign_in_at).toLocaleDateString()
-    : '-'
-})
+    : '-';
+});
 </script>
 
 <template>
@@ -30,9 +30,6 @@ const formattedLastSignIn = computed(() => {
       <div class="profile__avatar">
         {{ user?.email?.[0].toUpperCase() }}
       </div>
-      <h1 class="profile__title">
-        Welcome back!
-      </h1>
       <p class="profile__email">
         {{ user?.email }}
       </p>
@@ -75,7 +72,7 @@ const formattedLastSignIn = computed(() => {
 
 <style scoped>
 .profile__card {
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
   padding: 2.5rem;
@@ -92,7 +89,7 @@ const formattedLastSignIn = computed(() => {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+  background: linear-gradient(45deg, #ef6868, #31b5ac, #31a8c2);
   opacity: 0.09;
   z-index: -1;
 }
@@ -131,7 +128,6 @@ const formattedLastSignIn = computed(() => {
 }
 
 .profile__avatar:hover {
-  transform: scale(1.05);
   box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
 }
 

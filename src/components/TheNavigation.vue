@@ -43,6 +43,7 @@ const visibleLinks = computed(() => {
 <style scoped>
 .logo {
   display: block;
+  filter: drop-shadow(0 0 5px #9affee8b);
 }
 
 nav {
