@@ -1,5 +1,5 @@
-import type { RouteRecordRaw } from 'vue-router'
-import { useUserStore } from '@/stores/useUserStore'
+import type { RouteRecordRaw } from 'vue-router';
+import { useUserStore } from '@/stores/useUserStore';
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -37,9 +37,9 @@ export const routes: RouteRecordRaw[] = [
     },
     beforeEnter(to, _from, next) {
       if (useUserStore().isAuthenticated)
-        next({ name: 'home' })
+        next({ name: 'home' });
       else
-        next()
+        next();
     },
   },
   {
@@ -62,6 +62,10 @@ export const routes: RouteRecordRaw[] = [
       layout: 'default',
       breadcrumb: {
         label: 'Profile',
+        parent: {
+          label: 'Home',
+          path: '/',
+        },
       },
     },
   },
@@ -84,4 +88,4 @@ export const routes: RouteRecordRaw[] = [
     name: 'catch-all',
     component: () => import('@/views/HomeView.vue'),
   },
-]
+];

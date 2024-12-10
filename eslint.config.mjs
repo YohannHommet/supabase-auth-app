@@ -9,4 +9,5 @@ export default antfu({
   ignorePatterns: ['dist', 'node_modules'],
   typescript: true,
   vue: true,
+  transformers: true,
 });

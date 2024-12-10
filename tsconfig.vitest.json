@@ -9,5 +9,9 @@
       "jsdom"
     ]
   },
-  "exclude": []
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/**/*.spec.ts"
+  ]
 }
